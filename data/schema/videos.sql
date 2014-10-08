@@ -1,0 +1,20 @@
+CREATE TABLE `videos` (
+  `video_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `guid` varchar(36) COLLATE utf8_unicode_ci NOT NULL,
+  `country` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
+  `language` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `length` double NOT NULL,
+  `copyright` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aspect_ratio` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `source_id` int(11) NOT NULL,
+  `origin_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `keyframes` longtext COLLATE utf8_unicode_ci,
+  `display` smallint(6) NOT NULL DEFAULT '0',
+  `viewd` int(11) NOT NULL,
+  `liked` int(11) NOT NULL,
+  PRIMARY KEY (`video_id`),
+  UNIQUE KEY `videos_guid_unique` (`guid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci

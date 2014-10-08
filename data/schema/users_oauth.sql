@@ -1,0 +1,20 @@
+CREATE TABLE `users_oauth` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `open_access_token` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `open_uid` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `open_username` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `open_nickname` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vendor` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `expire` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `extra` text COLLATE utf8_unicode_ci,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'NORMAL',
+  `last_login_at` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `users_oauth_user_id_index` (`user_id`),
+  KEY `users_oauth_open_access_token_index` (`open_access_token`(255)),
+  KEY `users_oauth_open_uid_index` (`open_uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
